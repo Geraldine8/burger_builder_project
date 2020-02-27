@@ -4,7 +4,8 @@ import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders';
 
 //GLOBAL CONSTANT
 
@@ -81,7 +82,25 @@ class BurgerBuilder extends Component {
   }
 
   purchaseContinueHandler = () => {
-    alert('You continue!');
+    // alert('You continue!');
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      customerData: {
+        name: 'Geraldine A.',
+        address: {
+          street: 'TestStreet 1',
+          postCode: "E12 JTB",
+          country: 'UK'
+        },
+        email: 'none@gmail.com'
+      },
+      deliveryMethod: 'fastest'
+    }
+    axios.post('/orders.json', order)
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
   }
 
   render(){
