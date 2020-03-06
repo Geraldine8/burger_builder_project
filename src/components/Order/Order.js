@@ -5,7 +5,7 @@ import classes from './Order.module.css'
 const order = (props) => (
   <div className={classes.Order}>
     <p>ingredientes: Salad(1)</p>
-    <p>Price: <strong>USD 5.45</strong><p>
+    <p>Price: <strong>USD 5.45</strong></p>
   </div>
 );
 
