@@ -22,7 +22,7 @@ class ContactData extends Component {
     this.setState({loading: true});
     const order = {
       ingredients: this.props.ingredients,
-      price: this.props.proce,
+      price: this.props.price,
       customerData: {
         name: 'Geraldine A.',
         address: {
