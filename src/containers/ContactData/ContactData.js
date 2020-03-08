@@ -55,7 +55,7 @@ class ContactData extends Component {
         deliveryMethod: {
             elementType: 'select',
             elementConfig: {
-              option: [
+              options: [
                 {value: 'fastest', displayValue: 'Fastest'},
                 {value: 'cheapest', displayValue: 'Cheapest'},
               ]
@@ -84,12 +84,22 @@ class ContactData extends Component {
   }
 
   render() {
+    const formElementArray = [];
+    for (let key in this.state.orderForm) {
+      formElementArray.push({
+        id: key,
+        config: this.state.orderForm[key]
+      });
+    }
     let form = (
       <form>
-        <Input elementType="..." elementConfig="..." valaue="..."/>
-        <Input inputtype="input" type="email" name="email" placeholder="Your Email"/>
-        <Input inputtype="input" type="text" name="street" placeholder="Street"/>
-        <Input inputtype="input" type="text" name="postal" placeholder="Post Code"/>
+        {formElementArray.map(forElement => (
+          <Input
+            key={forElement.id}
+            elementType={forElement.config.elementType}
+            elementConfig={forElement.config.elementConfig}
+            value={forElement.config.value}/>
+        ))}
         <Button btnType="Success" clicked={this.orderHandler}>Order</Button>
       </form>
     );
