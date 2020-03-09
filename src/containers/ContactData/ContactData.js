@@ -43,8 +43,8 @@ class ContactData extends Component {
           value: '',
           validation: {
             required: true,
-            minLength: 5,
-            maxLength: 5
+            minLength: 6,
+            maxLength: 6
           },
           valid: false
         },
@@ -111,19 +111,19 @@ class ContactData extends Component {
   }
 
     checkValidity (value, rules){
-      let isValid = false;
+      let isValid = true;
 
       if (rules.required) {
         // console.log(value);
-        isValid = value.trim() !== '';
+        isValid = value.trim() !== '' && isValid;
       }
 
       if (rules.minLength) {
-        isValid = value.length >= rules.minLength;
+        isValid = value.length >= rules.minLength && isValid;
       }
 
       if (rules.maxLength) {
-        isValid = value.length <= rules.maxLength;
+        isValid = value.length <= rules.maxLength && isValid;
       }
 
       return isValid;
