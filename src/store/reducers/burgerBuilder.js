@@ -43,6 +43,7 @@ const reducer = (state = initialState, action ) => {
           cheese: action.ingredients.cheese,
           meat: action.ingredients.meat
         },
+        totalPrice: 4,
         error: false
 
       };
@@ -54,7 +55,7 @@ const reducer = (state = initialState, action ) => {
       default:
         return state;
   }
-  return state;
+  // return state;
 };
 
 export default reducer;
