@@ -19,7 +19,7 @@ import Aux from '../../../hoc/Aux/Aux';
           <Logo/>
         </div>
       <nav>
-        <NavigationItems/>
+        <NavigationItems isAuthenticated={props.isAuth}/>
       </nav>
     </div>
   </Aux>
