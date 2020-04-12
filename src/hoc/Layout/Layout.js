@@ -6,7 +6,7 @@ import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-const Layout = (props) => {
+const Layout = props => {
   const [sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
 
   const sideDrawerClosedHandler = () => {
@@ -28,7 +28,7 @@ const Layout = (props) => {
         open={sideDrawerIsVisible}
         closed={sideDrawerClosedHandler}
       />
-      <main className={classes.Content}>{this.props.children}</main>
+      <main className={classes.Content}>{props.children}</main>
     </Aux>
   );
 };
