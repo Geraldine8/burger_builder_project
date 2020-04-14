@@ -42,12 +42,13 @@ const Auth = props => {
     })
     const [isSignup, setIsSignup] = useState(true);
 
-  useEffect(() => {
-    if (!props.builderBurger && props.authRedirectPath !== '/') {
-      props.onSetRedirectPath();
-    }
-    // eslint-disable-next-line
-  }, []);
+    const {builderBurger, authRedirectPath, onSetRedirectPath} = props;
+
+    useEffect(() => {
+      if (!builderBurger && authRedirectPath !== '/') {
+        onSetRedirectPath();
+      }
+    }, [builderBurger, authRedirectPath, onSetRedirectPath]);
 
    
   const inputChangedHandler = (event, controlName) => {

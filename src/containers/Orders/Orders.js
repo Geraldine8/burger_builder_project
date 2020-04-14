@@ -8,10 +8,12 @@ import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 const Orders = props => {
+  const {onFetchOrders} = props;
+
   useEffect(() => {
-    props.onFetchOrders(props.token, props.userId);
+    onFetchOrders(props.token, props.userId);
     // eslint-disable-next-line
-  }, [])
+  }, [onFetchOrders]);
     
 
     let orders = <Spinner/>;
